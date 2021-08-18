@@ -121,15 +121,15 @@
         <ImageView
             android:id="@+id/ivRegisterBackToLogin"
             android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
+            android:onClick="@{registerViewModel::ivBackToLogin}"
             android:src="@drawable/ic_register_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.05"
-            android:onClick="@{registerViewModel::ivBackToLogin}"/>
+            app:layout_constraintVertical_bias="0.05" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/ivlottie_register_loading"

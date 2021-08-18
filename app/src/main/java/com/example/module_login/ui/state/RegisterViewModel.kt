@@ -72,7 +72,7 @@ class RegisterViewModel: ViewModel() {
 
                     override fun onNext(user: LCUser) {
                         // 注册成功
-                        Toast.makeText(_activity, "注册成功 register module" + user.getObjectId(), Toast.LENGTH_SHORT)
+                        Toast.makeText(_activity, "注册成功" + user.getObjectId(), Toast.LENGTH_SHORT)
 
                         LCUser.logIn(userName, userPassword).subscribe(object : Observer<LCUser?> {
                             override fun onSubscribe(disposable: Disposable) {}
@@ -81,13 +81,13 @@ class RegisterViewModel: ViewModel() {
                             override fun onError(throwable: Throwable) {
 
                                 // 登录失败（可能是密码错误）
-                                Toast.makeText(_activity, "登录失败 register module" , Toast.LENGTH_SHORT).show()
+                                Toast.makeText(_activity, "登录失败" + throwable.message , Toast.LENGTH_SHORT).show()
                             }
 
                             override fun onComplete() {}
                             override fun onNext(t: LCUser) {
 
-                                Toast.makeText(_activity, "登录成功 register module" , Toast.LENGTH_SHORT).show()
+                                Toast.makeText(_activity, "登录成功" + t.objectId , Toast.LENGTH_SHORT).show()
                                 // 登录成功
                                 val intent = Intent(_activity,MainActivity::class.java)
                                 _activity.startActivity(intent)
@@ -99,7 +99,7 @@ class RegisterViewModel: ViewModel() {
 
                     override fun onError(e: Throwable) {
 
-                        Toast.makeText(_activity, "注册失败 register module" + user.getObjectId(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(_activity, "注册失败" + e.message, Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onSubscribe(d: Disposable) {

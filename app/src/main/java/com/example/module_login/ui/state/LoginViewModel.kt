@@ -48,12 +48,12 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                 override fun onSubscribe(disposable: Disposable) {}
                 override fun onError(throwable: Throwable) {
                     // 登录失败（可能是密码错误）
-                    Toast.makeText(_activity, "登录失败，请重新登录 login module", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(_activity, "登录失败" + throwable.message, Toast.LENGTH_SHORT).show()
                 }
                 override fun onComplete() {}
                 override fun onNext(t: LCUser) {
 
-                    Toast.makeText(_activity, "登录成功 login module", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(_activity, "登录成功", Toast.LENGTH_SHORT).show()
                     // 登录成功
                     val intent = Intent(_activity, MainActivity::class.java)
                     _activity.startActivity(intent)
@@ -81,28 +81,5 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
-    /*class MyTextWatcher(private var _binding: FragmentLoginBinding) : TextWatcher {
-        private lateinit var _etUserNameText: String
-        private lateinit var _etPasswordNameText: String
-
-        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            TODO("Not yet implemented")
-        }
-
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            _etUserNameText = _binding.etUserName.text?.trim().toString()
-            _etPasswordNameText = _binding.etPassword.text?.trim().toString()
-            _binding.tvTestShow.visibility = View.VISIBLE
-
-        }
-
-        override fun afterTextChanged(p0: Editable?) {
-            TODO("Not yet implemented")
-        }
-
-
-    }*/
 
 }
