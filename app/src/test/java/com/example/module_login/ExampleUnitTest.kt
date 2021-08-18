@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.module_login
 
 import org.junit.Test
 

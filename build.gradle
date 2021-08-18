@@ -3,6 +3,10 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        // 增加下面的配置
+        maven {
+            url "https://oss.sonatype.org/content/groups/public/"
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.0-rc01"
